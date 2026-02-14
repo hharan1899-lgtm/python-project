@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-username/django-sample-app.git'
+                git 'https://github.com/hharan1899-lgtm/python-project/django-sample-app.git'
             }
         }
 
