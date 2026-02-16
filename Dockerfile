@@ -1,12 +1,15 @@
 FROM python:3.10-slim
 
-WORKDIR /app
+WORKDIR /code
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+WORKDIR /code/app
+
 EXPOSE 8000
 
-CMD ["gunicorn", "app.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "--chdir", "/code/app", "app.wsgi:application", "--bind", "0.0.0.0:8000"]
+
