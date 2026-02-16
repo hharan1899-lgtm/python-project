@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t django-demo .'
+                sh 'docker build -t django-demo1 .'
             }
         }
 
@@ -13,7 +13,7 @@ pipeline {
                 sh '''
                 docker stop django-demo || true
                 docker rm django-demo || true
-                docker run -d -p 8000:8000 --name django-demo django-demo
+                docker run -d -p 8001:8001 --name django-demo django-demo
                 '''
             }
         }
